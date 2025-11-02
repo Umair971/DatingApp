@@ -7,13 +7,14 @@ import { InitService } from '../Core/services/init-service';
 import { lastValueFrom } from 'rxjs';
 import { EventInfoWrapper } from '@angular/core/primitives/event-dispatch';
 import { errorInterceptor } from '../Core/interceptor/error-interceptor';
+import { jwtInterceptor } from '../Core/interceptor/jwt-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes, withViewTransitions()),
-    provideHttpClient(withInterceptors([errorInterceptor])),
+    provideHttpClient(withInterceptors([errorInterceptor, jwtInterceptor])),
     provideAppInitializer(async () => {
       const initService = inject(InitService);
 
