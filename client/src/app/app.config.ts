@@ -8,13 +8,14 @@ import { lastValueFrom } from 'rxjs';
 import { EventInfoWrapper } from '@angular/core/primitives/event-dispatch';
 import { errorInterceptor } from '../Core/interceptor/error-interceptor';
 import { jwtInterceptor } from '../Core/interceptor/jwt-interceptor';
+import { loadingInterceptor } from '../Core/interceptor/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes, withViewTransitions()),
-    provideHttpClient(withInterceptors([errorInterceptor, jwtInterceptor])),
+    provideHttpClient(withInterceptors([errorInterceptor, jwtInterceptor, loadingInterceptor])),
     provideAppInitializer(async () => {
       const initService = inject(InitService);
 
