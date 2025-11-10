@@ -13,6 +13,7 @@ import { MemberPhotos } from '../features/members/member-photos/member-photos';
 import { MemberMessages } from '../features/members/member-messages/member-messages';
 import { memberResolver } from '../features/members/member-resolver';
 import { preventUnsavedChangesGuard } from '../Core/gaurds/prevent-unsaved-changes-guard';
+import { Register } from '../features/account/register/register';
 
 export const routes: Routes = [
     { path: '', component: Home },
